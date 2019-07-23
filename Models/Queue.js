@@ -427,6 +427,19 @@ export class Queue {
     }
 
   }
+  
+  flushJobById(jobid) {
+    this.realm.write(() => {
+
+        let jobs = this.realm.objects('Job')
+          .filtered('id == "' + jobid + '"');
+
+        if (jobs.length) {
+          this.realm.delete(jobs);
+        }
+
+      });
+  }
 
 
 }
