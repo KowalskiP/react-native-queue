@@ -25,6 +25,8 @@ export default class Database {
 
   static realmInstance = null; // Use a singleton connection to realm for performance.
 
+  static get JobSchema() { return JobSchema; }
+
   static async getRealmInstance(options = {}) {
 
     // Connect to realm if database singleton instance has not already been created.
